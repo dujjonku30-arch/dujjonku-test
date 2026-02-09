@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>두바이 쫀득 쿠키 성격 테스트</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page full">
+      <header class="topbar">
+        <div class="topbar-cell brand" data-i18n="brand">두쫀쿠 테스트</div>
+        <div class="topbar-cell">
+          <img class="flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" />
+        </div>
+        <button id="menu-btn" class="topbar-cell icon-btn" aria-label="메뉴" type="button">
+          <img class="icon-img" alt="" src="assets/icons/more-vertical.svg" />
+        </button>
+      </header>
+
+      <section class="intro">
+        <p class="intro-text" data-i18n-html="intro">
+          두쫀쿠 유행에 제대로 돌아버린 한국인이 만든,<br />
+          아주 사적인 성향 테스트입니다.
+        </p>
+      </section>
+
+      <section class="hero-visual">
+        <img class="main-thumb" src="assets/characters/main-thumb.png" alt="두쫀쿠 메인 썸네일" />
+      </section>
+
+      <section class="headline">
+        <h1 data-i18n="headline">내가 두쫀쿠..?</h1>
+        <p class="subline" data-i18n-html="subline">
+          If, 두쫀쿠로 태어난다면—<br />
+          나는 말랑할까, 바삭할까?<br />
+          흠.. 직접 확인해볼까...?
+        </p>
+      </section>
+
+      <section class="bottom-actions">
+        <a class="btn primary" href="test.html" data-i18n="startTest">지금 테스트 시작</a>
+        <a class="btn ghost" href="gallery.html" data-i18n="gallery">두쫀쿠 진열대</a>
+      </section>
+    </main>
+
+    <div id="menu-modal" class="modal menu-modal">
+      <div class="menu-sheet">
+        <div class="menu-list">
+          <a class="menu-item menu-item-primary" href="test.html" data-i18n="menuStart">테스트 시작</a>
+          <a class="menu-item" href="gallery.html" data-i18n="menuGallery">두쫀쿠 진열대</a>
+          <button class="menu-item" type="button" data-open-coin data-i18n="menuCoin">돈벌어서 두쫀쿠 더 사먹고 싶어요</button>
+          <a class="menu-item menu-item-light" href="privacy.html" data-i18n="policy">개인정보처리방침</a>
+          <a class="menu-item menu-item-light" href="terms.html" data-i18n="terms">이용약관</a>
+          <a class="menu-item menu-item-light" href="mailto:dujjonku30@gmail.com" data-i18n="contact">문의. dujjonku30@gmail.com</a>
+          <div class="menu-item menu-item-footer">© 2026 DujjonkuTest</div>
+        </div>
+        <a class="menu-back" href="index.html" data-i18n="menuBack">〈 메인으로</a>
+      </div>
+    </div>
+
+    <div id="lang-modal" class="modal lang-modal">
+      <div class="lang-card">
+        <div class="lang-header">
+          <span class="lang-title" data-i18n="langTitle">언어 변경</span>
+          <button class="lang-close" type="button" data-modal-close="lang-modal">×</button>
+        </div>
+        <div class="lang-list">
+          <button class="lang-item" type="button" data-lang="ko"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" /><span data-i18n="langKo">한국어</span></button>
+          <button class="lang-item" type="button" data-lang="ar"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3f435256-68da-48f5-a882-f3e0158de018" /><span data-i18n="langAr">아랍어</span></button>
+          <button class="lang-item" type="button" data-lang="en"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/fe8b3fea-fc05-4fbe-bc70-0f74185d2a24" /><span data-i18n="langEn">영어</span></button>
+          <button class="lang-item" type="button" data-lang="ja"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/052c61aa-085a-443d-8ca4-be9dd0d9c566" /><span data-i18n="langJa">일본어</span></button>
+          <button class="lang-item" type="button" data-lang="zh"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3da58ab4-736d-4a28-a60b-b41c37457edf" /><span data-i18n="langZh">중국어</span></button>
+        </div>
+        <p class="lang-note" data-i18n="langNote">다른 언어로 번역 시 한국어 특유의 뉘앙스가 100% 전달되지 않을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div id="privacy-modal" class="modal">
+      <div class="modal-card legal">
+        <button class="modal-close" type="button" data-modal-close="privacy-modal">×</button>
+        <h1 data-i18n="privacyTitle">개인정보처리방침</h1>
+        <p data-i18n="privacyIntro">본 문서는 두쫀쿠 테스트 서비스의 개인정보처리방침 초안입니다. 운영자 정보와 실제 처리 내역에 맞춰 수정이 필요합니다.</p>
+        <h2 data-i18n="privacy1">1. 수집하는 정보</h2>
+        <ul class="list">
+          <li data-i18n="privacy1Item1">테스트 답변(객관식/주관식)</li>
+          <li data-i18n="privacy1Item2">서비스 이용 로그(접속, 기기, 브라우저)</li>
+          <li data-i18n="privacy1Item3">쿠키 및 광고 식별자(광고 노출/성과 측정 목적)</li>
+        </ul>
+        <h2 data-i18n="privacy2">2. 이용 목적</h2>
+        <ul class="list">
+          <li data-i18n="privacy2Item1">테스트 결과 제공 및 품질 개선</li>
+          <li data-i18n="privacy2Item2">서비스 안정성 확보 및 통계 분석</li>
+          <li data-i18n="privacy2Item3">광고 제공 및 성과 측정</li>
+        </ul>
+        <h2 data-i18n="privacy3">3. 보관 기간</h2>
+        <p data-i18n="privacy3Text">수집된 정보는 목적 달성 시 즉시 파기하거나 법령에 따라 보관합니다.</p>
+      </div>
+    </div>
+
+    <div id="terms-modal" class="modal">
+      <div class="modal-card legal">
+        <button class="modal-close" type="button" data-modal-close="terms-modal">×</button>
+        <h1 data-i18n="termsTitle">이용약관</h1>
+        <p data-i18n="termsIntro">본 문서는 두쫀쿠 테스트 서비스의 이용약관 초안입니다. 운영자 정책에 맞춰 수정이 필요합니다.</p>
+        <h2 data-i18n="terms1">1. 서비스 내용</h2>
+        <p data-i18n="terms1Text">본 서비스는 성향 테스트 및 결과 제공을 목적으로 합니다.</p>
+        <h2 data-i18n="terms2">2. 책임 제한</h2>
+        <p data-i18n="terms2Text">본 서비스의 결과는 오락 및 참고 목적이며, 법적/의학적/전문적 판단을 대체하지 않습니다.</p>
+        <h2 data-i18n="terms3">3. 금지 행위</h2>
+        <ul class="list">
+          <li data-i18n="terms3Item1">서비스의 정상적 운영을 방해하는 행위</li>
+          <li data-i18n="terms3Item2">타인의 권리를 침해하는 행위</li>
+          <li data-i18n="terms3Item3">불법적인 목적의 이용</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app-shell.js"></script>
+    <script src="i18n.js"></script>
+    <script src="coin.js"></script>
+    <script src="ui.js"></script>
+  </body>
+</html>

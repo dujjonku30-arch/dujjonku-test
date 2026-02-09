@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>두쫀코인 - 두쫀쿠</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page full coin-page">
+      <header class="topbar">
+        <div class="topbar-cell brand" data-i18n="brand">두쫀쿠 테스트</div>
+        <div class="topbar-cell">
+          <img class="flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" />
+        </div>
+        <button id="menu-btn" class="topbar-cell icon-btn" aria-label="메뉴" type="button">
+          <img class="icon-img" alt="" src="assets/icons/more-vertical.svg" />
+        </button>
+      </header>
+
+      <a class="coin-back" href="index.html">
+        <span class="coin-back-arrow">‹</span>
+        <span data-i18n="coinBack">메인으로</span>
+      </a>
+
+      <section class="coin-hero">
+        <div class="coin-hero-badge">
+          <span class="coin-hero-count coin">1</span>
+        </div>
+        <p class="coin-hero-desc" data-i18n="coinNeedDesc">두쫀쿠 테스트1회당 1두쫀코인이 필요해요.</p>
+      </section>
+
+      <section class="coin-actions">
+        <button id="coin-page-ad" class="btn primary" data-i18n="coinAdLong">줄서서 1두쫀코인 얻기 (대기 60초)</button>
+        <button id="coin-page-share" class="btn ghost" data-i18n="coinInvite">테스트 초대하고 2두쫀코인 받기</button>
+      </section>
+
+      <p class="coin-note" data-i18n="coinCreatorNote">돈벌어서 두쫀쿠 더 사먹고 싶어요 -제작자-</p>
+    </main>
+
+    <div id="menu-modal" class="modal menu-modal">
+      <div class="menu-sheet">
+        <div class="menu-list">
+          <a class="menu-item menu-item-primary" href="test.html" data-i18n="menuStart">테스트 시작</a>
+          <a class="menu-item" href="gallery.html" data-i18n="menuGallery">두쫀쿠 진열대</a>
+          <button class="menu-item" type="button" data-open-coin data-i18n="menuCoin">돈벌어서 두쫀쿠 더 사먹고 싶어요</button>
+          <a class="menu-item menu-item-light" href="privacy.html" data-i18n="policy">개인정보처리방침</a>
+          <a class="menu-item menu-item-light" href="terms.html" data-i18n="terms">이용약관</a>
+          <a class="menu-item menu-item-light" href="mailto:dujjonku30@gmail.com" data-i18n="contact">문의. dujjonku30@gmail.com</a>
+          <div class="menu-item menu-item-footer">© 2026 DujjonkuTest</div>
+        </div>
+        <a class="menu-back" href="index.html" data-i18n="menuBack">〈 메인으로</a>
+      </div>
+    </div>
+
+    <div id="lang-modal" class="modal lang-modal">
+      <div class="lang-card">
+        <div class="lang-header">
+          <span class="lang-title" data-i18n="langTitle">언어 변경</span>
+          <button class="lang-close" type="button" data-modal-close="lang-modal">×</button>
+        </div>
+        <div class="lang-list">
+          <button class="lang-item" type="button" data-lang="ko"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" /><span data-i18n="langKo">한국어</span></button>
+          <button class="lang-item" type="button" data-lang="ar"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3f435256-68da-48f5-a882-f3e0158de018" /><span data-i18n="langAr">아랍어</span></button>
+          <button class="lang-item" type="button" data-lang="en"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/fe8b3fea-fc05-4fbe-bc70-0f74185d2a24" /><span data-i18n="langEn">영어</span></button>
+          <button class="lang-item" type="button" data-lang="ja"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/052c61aa-085a-443d-8ca4-be9dd0d9c566" /><span data-i18n="langJa">일본어</span></button>
+          <button class="lang-item" type="button" data-lang="zh"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3da58ab4-736d-4a28-a60b-b41c37457edf" /><span data-i18n="langZh">중국어</span></button>
+        </div>
+        <p class="lang-note" data-i18n="langNote">다른 언어로 번역 시 한국어 특유의 뉘앙스가 100% 전달되지 않을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app-shell.js"></script>
+    <script src="i18n.js"></script>
+    <script src="coin.js"></script>
+    <script src="ui.js"></script>
+  </body>
+</html>

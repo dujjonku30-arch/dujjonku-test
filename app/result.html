@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>결과 - 두쫀쿠</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page result-page">
+      <header class="topbar">
+        <div class="topbar-cell brand" data-i18n="testTitle">두쫀쿠 테스트</div>
+        <div class="topbar-cell">
+          <img class="flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" />
+        </div>
+        <button id="menu-btn" class="topbar-cell icon-btn" aria-label="메뉴" type="button">
+          <img class="icon-img" alt="" src="assets/icons/more-vertical.svg" />
+        </button>
+      </header>
+
+      <section class="result-hero">
+        <div class="result-hero-media">
+          <img id="result-image" alt="" src="" />
+        </div>
+      </section>
+
+      <section class="result-banner">
+        <div class="result-banner-text">
+          <p class="result-banner-lead" data-i18n="resultLead">나는......</p>
+          <p id="result-name" class="result-banner-name"></p>
+          <p id="result-tagline" class="result-banner-tagline"></p>
+          <div id="result-loading" class="result-loading" aria-live="polite">
+            <span class="result-loading-spinner" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div id="result-tags" class="result-tagbox"></div>
+      </section>
+
+      <section class="result-content">
+        <div class="result-summary">
+          <div id="result-summary-title" class="result-summary-title"></div>
+          <div id="result-summary-body" class="result-summary-body"></div>
+        </div>
+
+        <div class="result-section">
+          <p class="result-section-title" data-i18n="deepTitle">🔍 딥 분석</p>
+          <div id="result-deep"></div>
+        </div>
+
+        <div class="result-section">
+          <p class="result-section-title" data-i18n="nutritionTitle">📊 나의 영양 성분</p>
+          <div class="result-card result-card-gray">
+            <p id="result-nutrition-title" class="result-card-title"></p>
+            <ul id="result-nutrition-list" class="result-card-list"></ul>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <p class="result-section-title" data-i18n="matchTitle">🤝 두쫀 궁합</p>
+          <div id="result-match"></div>
+        </div>
+      </section>
+
+      <section class="result-actions">
+        <a class="result-action" href="test.html" data-i18n="retest">테스트 다시하기</a>
+        <button id="share-btn" class="result-action result-action-alt" type="button" data-i18n="share">공유하기</button>
+      </section>
+    </main>
+
+    <div id="menu-modal" class="modal menu-modal">
+      <div class="menu-sheet">
+        <div class="menu-list">
+          <a class="menu-item menu-item-primary" href="test.html" data-i18n="menuStart">테스트 시작</a>
+          <a class="menu-item" href="gallery.html" data-i18n="menuGallery">두쫀쿠 진열대</a>
+          <button class="menu-item" type="button" data-open-coin data-i18n="menuCoin">돈벌어서 두쫀쿠 더 사먹고 싶어요</button>
+          <a class="menu-item menu-item-light" href="privacy.html" data-i18n="policy">개인정보처리방침</a>
+          <a class="menu-item menu-item-light" href="terms.html" data-i18n="terms">이용약관</a>
+          <a class="menu-item menu-item-light" href="mailto:dujjonku30@gmail.com" data-i18n="contact">문의. dujjonku30@gmail.com</a>
+          <div class="menu-item menu-item-footer">© 2026 DujjonkuTest</div>
+        </div>
+        <a class="menu-back" href="index.html" data-i18n="menuBack">〈 메인으로</a>
+      </div>
+    </div>
+
+    <div id="lang-modal" class="modal lang-modal">
+      <div class="lang-card">
+        <div class="lang-header"><span class="lang-title" data-i18n="langTitle">언어 변경</span><button class="lang-close" type="button" data-modal-close="lang-modal">×</button></div>
+        <div class="lang-list">
+          <button class="lang-item" type="button" data-lang="ko"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" /><span data-i18n="langKo">한국어</span></button>
+          <button class="lang-item" type="button" data-lang="ar"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3f435256-68da-48f5-a882-f3e0158de018" /><span data-i18n="langAr">아랍어</span></button>
+          <button class="lang-item" type="button" data-lang="en"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/fe8b3fea-fc05-4fbe-bc70-0f74185d2a24" /><span data-i18n="langEn">영어</span></button>
+          <button class="lang-item" type="button" data-lang="ja"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/052c61aa-085a-443d-8ca4-be9dd0d9c566" /><span data-i18n="langJa">일본어</span></button>
+          <button class="lang-item" type="button" data-lang="zh"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3da58ab4-736d-4a28-a60b-b41c37457edf" /><span data-i18n="langZh">중국어</span></button>
+        </div>
+        <p class="lang-note" data-i18n="langNote">다른 언어로 번역 시 한국어 특유의 뉘앙스가 100% 전달되지 않을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div id="share-modal" class="modal share-modal-full">
+      <div class="share-modal-card">
+        <button class="modal-close" type="button" data-modal-close="share-modal" aria-label="닫기">×</button>
+        <div class="share-preview" id="share-capture">
+          <div class="share-preview-media">
+            <img id="share-preview-image" alt="" src="" />
+          </div>
+          <div class="share-preview-banner">
+            <p class="share-preview-lead" data-i18n="resultLead">나는......</p>
+            <p id="share-preview-name" class="share-preview-name"></p>
+            <div id="share-preview-tags" class="share-preview-tags"></div>
+          </div>
+        </div>
+        <div class="share-modal-actions">
+          <button id="share-now" class="btn primary" type="button" data-i18n="shareNow">공유</button>
+          <button id="share-save" class="btn ghost" type="button" data-i18n="shareSave">이미지 저장</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app-shell.js"></script>
+    <script src="i18n.js"></script>
+    <script src="characters-i18n.js"></script>
+    <script src="coin.js"></script>
+    <script src="ui.js"></script>
+    <script src="data.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="result.js"></script>
+  </body>
+</html>

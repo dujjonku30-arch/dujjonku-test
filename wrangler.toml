@@ -1,0 +1,6 @@
+name = "duzzonku-test"
+compatibility_date = "2026-02-09"
+
+# Cloudflare Pages: static asset directory
+pages_build_output_dir = "app"
+

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>두쫀쿠 진열대</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page full">
+      <header class="topbar">
+        <div class="topbar-cell brand" data-i18n="brand">두쫀쿠 테스트</div>
+        <div class="topbar-cell">
+          <img class="flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" />
+        </div>
+        <button id="menu-btn" class="topbar-cell icon-btn" aria-label="메뉴" type="button">
+          <img class="icon-img" alt="" src="assets/icons/more-vertical.svg" />
+        </button>
+      </header>
+
+      <section class="banner">
+        <h1 data-i18n="galleryTitle">~두쫀쿠 진열대~</h1>
+        <p data-i18n="gallerySub">다 모으면… 뜻밖의 엔딩이 있을지도..?</p>
+      </section>
+      <section id="gallery-complete-banner" class="banner-complete" aria-hidden="true">
+        <p data-i18n="galleryCompleteBanner">황금빛 쫀득함, 당신은 어떤 두쫀쿠든 될 수 있다.</p>
+      </section>
+
+      <section class="gallery card">
+        <div class="grid" id="gallery-grid"></div>
+      </section>
+
+      <section class="bottom-actions">
+        <a class="btn primary" href="test.html" data-i18n="collectByTest">테스트로 수집하기</a>
+      </section>
+    </main>
+
+    <div id="gallery-locked-modal" class="modal gallery-modal">
+      <div class="gallery-modal-card">
+        <div class="gallery-modal-media"><img id="gallery-locked-image" alt="" src="assets/characters/char-locked.png" /></div>
+        <h3 id="gallery-locked-name" class="gallery-modal-title">말랑말랑 바삭한 두쫀쿠</h3>
+        <p id="gallery-locked-desc" class="gallery-modal-desc">아직 베일에 싸여있어요. 테스트를 통해 발견해보세요!</p>
+        <p id="gallery-locked-rate" class="gallery-modal-rate">두쫀쿠 발견 확률:00%</p>
+        <div class="gallery-modal-actions">
+          <a id="gallery-locked-go" class="btn primary" href="test.html" data-i18n="galleryFindAction">테스트 통해 찾으러가기</a>
+          <button class="btn ghost" type="button" data-modal-close="gallery-locked-modal" data-i18n="galleryLaterAction">다음에 하기</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="gallery-secret-modal" class="modal gallery-modal">
+      <div class="gallery-modal-card">
+        <div class="gallery-modal-media"><img id="gallery-secret-image" alt="" src="assets/characters/char-secret-thumb.png" /></div>
+        <h3 class="gallery-modal-title" data-i18n="gallerySecretTitle">전설의 황금 레시피 해금</h3>
+        <p class="gallery-modal-desc" data-i18n="gallerySecretDesc">이제 단 하나, 아직 완성되지 않은 마지막 조각만이 남았습니다.
+모든 재료가 모였을 때 비로소 완성되는 전설의 비밀 레시피를 확인하시겠습니까?</p>
+        <p class="gallery-modal-rate" data-i18n="galleryRate">두쫀쿠 발견 확률:00%</p>
+        <div class="gallery-modal-actions">
+          <a id="gallery-secret-open" class="btn primary" href="result.html?id=secret-recipe" data-i18n="galleryOpenAction">열람하기</a>
+          <button class="btn ghost" type="button" data-modal-close="gallery-secret-modal" data-i18n="galleryLaterAction">다음에 하기</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="gallery-result-modal" class="modal gallery-result-modal-full">
+      <div class="gallery-result-modal-card">
+        <button class="gallery-result-close" type="button" data-modal-close="gallery-result-modal" aria-label="닫기">×</button>
+        <div class="gallery-result-viewport">
+          <iframe id="gallery-result-frame" class="gallery-result-frame" title="두쫀쿠 결과" loading="lazy"></iframe>
+        </div>
+        <div class="gallery-result-actions">
+          <button id="gallery-result-share" class="btn primary" type="button" data-i18n="shareNow">공유</button>
+          <button id="gallery-result-save" class="btn ghost" type="button" data-i18n="shareSave">이미지 저장</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu-modal" class="modal menu-modal">
+      <div class="menu-sheet">
+        <div class="menu-list">
+          <a class="menu-item menu-item-primary" href="test.html" data-i18n="menuStart">테스트 시작</a>
+          <a class="menu-item" href="gallery.html" data-i18n="menuGallery">두쫀쿠 진열대</a>
+          <button class="menu-item" type="button" data-open-coin data-i18n="menuCoin">돈벌어서 두쫀쿠 더 사먹고 싶어요</button>
+          <a class="menu-item menu-item-light" href="privacy.html" data-i18n="policy">개인정보처리방침</a>
+          <a class="menu-item menu-item-light" href="terms.html" data-i18n="terms">이용약관</a>
+          <a class="menu-item menu-item-light" href="mailto:dujjonku30@gmail.com" data-i18n="contact">문의. dujjonku30@gmail.com</a>
+          <div class="menu-item menu-item-footer">© 2026 DujjonkuTest</div>
+        </div>
+        <a class="menu-back" href="index.html" data-i18n="menuBack">〈 메인으로</a>
+      </div>
+    </div>
+
+    <div id="lang-modal" class="modal lang-modal">
+      <div class="lang-card">
+        <div class="lang-header"><span class="lang-title" data-i18n="langTitle">언어 변경</span><button class="lang-close" type="button" data-modal-close="lang-modal">×</button></div>
+        <div class="lang-list">
+          <button class="lang-item" type="button" data-lang="ko"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" /><span data-i18n="langKo">한국어</span></button>
+          <button class="lang-item" type="button" data-lang="ar"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3f435256-68da-48f5-a882-f3e0158de018" /><span data-i18n="langAr">아랍어</span></button>
+          <button class="lang-item" type="button" data-lang="en"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/fe8b3fea-fc05-4fbe-bc70-0f74185d2a24" /><span data-i18n="langEn">영어</span></button>
+          <button class="lang-item" type="button" data-lang="ja"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/052c61aa-085a-443d-8ca4-be9dd0d9c566" /><span data-i18n="langJa">일본어</span></button>
+          <button class="lang-item" type="button" data-lang="zh"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3da58ab4-736d-4a28-a60b-b41c37457edf" /><span data-i18n="langZh">중국어</span></button>
+        </div>
+        <p class="lang-note" data-i18n="langNote">다른 언어로 번역 시 한국어 특유의 뉘앙스가 100% 전달되지 않을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app-shell.js"></script>
+    <script src="i18n.js"></script>
+    <script src="coin.js"></script>
+    <script src="data.js"></script>
+    <script src="characters-i18n.js"></script>
+    <script src="ui.js"></script>
+    <script src="gallery.js"></script>
+  </body>
+</html>

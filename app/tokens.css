@@ -1,0 +1,94 @@
+:root {
+  --line: #000000;
+  --bg-desktop: #b5b5b5;
+  --bg-page: #f7f7f7;
+  --bg-header: #ffffff;
+  --app-max-width: 430px;
+  --header-height: 60px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.app-shell-body {
+  background: var(--bg-desktop);
+}
+
+.app-page {
+  width: min(100vw, var(--app-max-width));
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--bg-page);
+  position: relative;
+}
+
+.topbar.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: 1fr 60px 60px;
+  height: var(--header-height);
+  background: var(--bg-header);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-left: 0;
+  border-right: 0;
+}
+
+.topbar.app-header .topbar-cell {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-right: 1px solid var(--line);
+}
+
+.topbar.app-header .topbar-cell:last-child {
+  border-right: 0;
+}
+
+.topbar.app-header .icon-btn {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.topbar.app-header .brand {
+  justify-content: flex-start;
+  padding-left: 22px;
+  color: #000000;
+}
+
+.topbar.app-header .coin {
+  position: relative;
+}
+
+.topbar.app-header .coin-icon {
+  width: 44px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+.topbar.app-header .coin-count {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-actions,
+.result-actions,
+.test-footer {
+  width: min(100vw, var(--app-max-width));
+  max-width: var(--app-max-width);
+}

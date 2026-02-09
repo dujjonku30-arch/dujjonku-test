@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>테스트 시작 - 두쫀쿠</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page full">
+      <header class="topbar">
+        <div class="topbar-cell brand" data-i18n="brand">두쫀쿠 테스트</div>
+        <div class="topbar-cell">
+          <img class="flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" />
+        </div>
+        <button id="menu-btn" class="topbar-cell icon-btn" aria-label="메뉴" type="button">
+          <img class="icon-img" alt="" src="assets/icons/more-vertical.svg" />
+        </button>
+      </header>
+
+      <section id="test-app" class="test-screen">
+        <div class="test-progress">
+          <div class="test-progress-track">
+            <div id="progress-fill" class="test-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="test-content">
+          <div class="question-card">
+            <div id="question-number" class="question-number">Q1.</div>
+            <div id="question-text" class="question-text" data-i18n="questionLoading">질문 로딩 중...</div>
+          </div>
+          <div id="answers" class="answers-list"></div>
+          <p id="subjective-impact-note" class="subjective-impact-note" data-i18n="subjectiveImpactNote">
+            주관식 답변은 AI 분석 점수에 가장 큰 비중을 차지해요! 정성껏 적을수록 당신과 찰떡인 두쫀쿠가 나타납니다. ✨
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="test-footer">
+      <button id="prev-btn" class="footer-btn footer-btn-prev" data-i18n="prev" type="button">이전</button>
+      <button id="next-btn" class="footer-btn footer-btn-next" data-i18n="next" type="button">다음</button>
+    </div>
+
+    <div id="menu-modal" class="modal menu-modal">
+      <div class="menu-sheet">
+        <div class="menu-list">
+          <a class="menu-item menu-item-primary" href="test.html" data-i18n="menuStart">테스트 시작</a>
+          <a class="menu-item" href="gallery.html" data-i18n="menuGallery">두쫀쿠 진열대</a>
+          <button class="menu-item" type="button" data-open-coin data-i18n="menuCoin">돈벌어서 두쫀쿠 더 사먹고 싶어요</button>
+          <a class="menu-item menu-item-light" href="privacy.html" data-i18n="policy">개인정보처리방침</a>
+          <a class="menu-item menu-item-light" href="terms.html" data-i18n="terms">이용약관</a>
+          <a class="menu-item menu-item-light" href="mailto:dujjonku30@gmail.com" data-i18n="contact">문의. dujjonku30@gmail.com</a>
+          <div class="menu-item menu-item-footer">© 2026 DujjonkuTest</div>
+        </div>
+        <a class="menu-back" href="index.html" data-i18n="menuBack">〈 메인으로</a>
+      </div>
+    </div>
+
+    <div id="lang-modal" class="modal lang-modal">
+      <div class="lang-card">
+        <div class="lang-header">
+          <span class="lang-title" data-i18n="langTitle">언어 변경</span>
+          <button class="lang-close" type="button" data-modal-close="lang-modal">×</button>
+        </div>
+        <div class="lang-list">
+          <button class="lang-item" type="button" data-lang="ko"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/1d0435f7-e710-4879-af9a-9fcea6af5771" /><span data-i18n="langKo">한국어</span></button>
+          <button class="lang-item" type="button" data-lang="ar"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3f435256-68da-48f5-a882-f3e0158de018" /><span data-i18n="langAr">아랍어</span></button>
+          <button class="lang-item" type="button" data-lang="en"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/fe8b3fea-fc05-4fbe-bc70-0f74185d2a24" /><span data-i18n="langEn">영어</span></button>
+          <button class="lang-item" type="button" data-lang="ja"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/052c61aa-085a-443d-8ca4-be9dd0d9c566" /><span data-i18n="langJa">일본어</span></button>
+          <button class="lang-item" type="button" data-lang="zh"><img class="lang-flag" alt="" src="https://www.figma.com/api/mcp/asset/3da58ab4-736d-4a28-a60b-b41c37457edf" /><span data-i18n="langZh">중국어</span></button>
+        </div>
+        <p class="lang-note" data-i18n="langNote">다른 언어로 번역 시 한국어 특유의 뉘앙스가 100% 전달되지 않을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div id="result-ad-modal" class="modal">
+      <div class="modal-card">
+        <h2>결과 보기 전 광고</h2>
+        <p class="modal-desc">광고 시청이 완료되면 결과를 확인할 수 있어요.</p>
+        <button id="result-ad-watch" class="btn primary" type="button">광고 보기 (15초)</button>
+        <div class="coin-ad-note">돈벌어서 두쫀쿠 더 사먹고 싶어요 -제작자-</div>
+        <button id="result-ad-close" class="btn ghost" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app-shell.js"></script>
+    <script src="i18n.js"></script>
+    <script src="coin.js"></script>
+    <script src="ui.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
