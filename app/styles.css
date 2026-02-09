@@ -344,7 +344,7 @@ html:not([lang="ko"]) .brand {
 
 /* Test page */
 .test-screen {
-  padding: 28px 16px 120px;
+  padding: 28px 16px 220px;
 }
 
 .test-progress-track {
@@ -676,6 +676,47 @@ html:not([lang="ko"]) .brand {
   justify-content: center;
 }
 
+.duzzon-ad-slot {
+  width: min(100%, 390px);
+  min-height: 50px;
+  margin: 0 auto;
+}
+
+.duzzon-ad-slot:empty {
+  display: none;
+}
+
+.duzzon-ad-slot .adsbygoogle {
+  display: block;
+}
+
+.test-bottom-ad-shell {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 72px;
+  z-index: 65;
+  width: min(100vw, var(--mobile-width));
+  padding: 0 8px;
+  pointer-events: none;
+}
+
+.test-bottom-ad-shell .duzzon-ad-slot {
+  pointer-events: auto;
+}
+
+.duzzon-ad-result {
+  margin-top: 14px;
+}
+
+.gallery-ad-wrap {
+  padding: 12px 16px 0;
+}
+
+.gallery-ad-wrap-bottom {
+  padding: 12px 16px 8px;
+}
+
 .result-tag {
   color: #e6d1b3;
   font-family: "KCCMuruk", "Pretendard", sans-serif;
@@ -984,7 +1025,23 @@ body.is-secret-recipe .result-action-alt {
   width: 100%;
   aspect-ratio: 1 / 1;
   border: 1px solid #000;
-  background: #000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-ad-slot {
+  width: 100%;
+  min-height: 250px;
+}
+
+.quick-ad-placeholder {
+  margin: 0;
+  text-align: center;
+  font-family: "CookieRunOTF", "Pretendard", sans-serif;
+  font-size: 18px;
+  color: #333;
 }
 
 .quick-ad-close-btn {

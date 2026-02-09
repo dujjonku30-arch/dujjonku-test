@@ -36,9 +36,10 @@ export async function onRequestGet(context) {
   const meta = RESULT_META[id] || { name: "두쫀쿠 성격 테스트", desc: "나의 두쫀쿠 결과를 확인해보세요." };
   const url = new URL(request.url);
   const origin = url.origin;
-  const imagePath = id ? `/assets/characters/char-${id}.png` : "/assets/characters/main-thumb.png";
+  const imagePath = "/assets/characters/char-locked.png";
   const imageUrl = `${origin}${imagePath}`;
   const targetUrl = `${origin}/result.html?id=${encodeURIComponent(id)}&src=share`;
+  const shareUrl = `${origin}/share/${encodeURIComponent(id)}`;
   const title = `${meta.name} | 두쫀쿠 성격 테스트`;
   const description = meta.desc || "나의 두쫀쿠 결과를 확인해보세요.";
 
@@ -54,12 +55,14 @@ export async function onRequestGet(context) {
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="${escapeHtml(imageUrl)}" />
-    <meta property="og:url" content="${escapeHtml(targetUrl)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:url" content="${escapeHtml(shareUrl)}" />
+    <link rel="canonical" href="${escapeHtml(shareUrl)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${escapeHtml(imageUrl)}" />
-    <meta http-equiv="refresh" content="0; url=${escapeHtml(targetUrl)}" />
     <script>window.location.replace(${JSON.stringify(targetUrl)});</script>
   </head>
   <body>

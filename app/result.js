@@ -174,6 +174,22 @@ function localizeCharacterRefsInDetail(detailInput, locale) {
 
 const mergedDetail = localizeCharacterRefsInDetail(baseMergedDetail, lang);
 
+function renderResultAfterTagsAd() {
+  const adHost = document.getElementById("ad-result-after-tags");
+  if (!adHost) return;
+  const slotId = String(CONFIG?.adsenseSlots?.resultAfterTags || "").trim();
+  if (!slotId) {
+    adHost.innerHTML = "";
+    return;
+  }
+  if (typeof window.DujjonkuAds?.renderSlot === "function") {
+    window.DujjonkuAds.renderSlot(adHost, slotId, {
+      adFormat: "auto",
+      fullWidthResponsive: true
+    });
+  }
+}
+
 function normalizeDetailShape(input, fallback) {
   const out = input && typeof input === "object" ? { ...input } : {};
   const inputSummaryTitle = Array.isArray(out.summaryTitle) ? out.summaryTitle.filter(Boolean) : [];
@@ -817,26 +833,9 @@ async function saveShareImage() {
   });
 
   const filename = `${id}-duzzonku.png`;
-  const saveHelp = dict?.shareSaveHelp || "기기 공유창에서 '이미지 저장' 또는 '파일에 저장'을 눌러주세요.";
   try {
     const blob = await blobFromCanvas(canvas);
     if (blob) {
-      const file = new File([blob], filename, { type: "image/png" });
-
-      // Mobile-first: open native share sheet with image file so iOS/Android can save image.
-      if (
-        typeof navigator.share === "function" &&
-        typeof navigator.canShare === "function" &&
-        navigator.canShare({ files: [file] })
-      ) {
-        await navigator.share({
-          title: result.name || "두쫀쿠 결과",
-          files: [file]
-        });
-        alert(saveHelp);
-        return;
-      }
-
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
@@ -942,3 +941,4 @@ window.duzzonResultSaveImage = async function duzzonResultSaveImage() {
 };
 
 protectResultImages();
+renderResultAfterTagsAd();

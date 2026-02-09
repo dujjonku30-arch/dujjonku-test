@@ -162,6 +162,22 @@ function canProceed() {
   return answer !== null && answer !== undefined;
 }
 
+function renderTestBottomAd() {
+  const adHost = document.getElementById("ad-test-bottom");
+  if (!adHost) return;
+  const slotId = String(CONFIG?.adsenseSlots?.testBottom || "").trim();
+  if (!slotId) {
+    adHost.innerHTML = "";
+    return;
+  }
+  if (typeof window.DujjonkuAds?.renderSlot === "function") {
+    window.DujjonkuAds.renderSlot(adHost, slotId, {
+      adFormat: "auto",
+      fullWidthResponsive: true
+    });
+  }
+}
+
 function mergeRawScores(base, extra) {
   const out = { ...base };
   if (!extra) return out;
@@ -277,6 +293,7 @@ nextBtn.addEventListener("click", async () => {
 
 restoreDraft();
 renderQuestion();
+renderTestBottomAd();
 
 document.addEventListener("duzzon:lang", () => {
   renderQuestion();

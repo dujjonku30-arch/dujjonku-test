@@ -113,6 +113,36 @@ function openResultModal(characterId) {
   }
 }
 
+function renderGalleryAds() {
+  const topHost = document.getElementById("ad-gallery-top");
+  const bottomHost = document.getElementById("ad-gallery-bottom");
+
+  const topSlotId = String(CONFIG?.adsenseSlots?.galleryTop || "").trim();
+  const bottomSlotId = String(CONFIG?.adsenseSlots?.galleryBottom || "").trim();
+
+  if (topHost) {
+    if (topSlotId && typeof window.DujjonkuAds?.renderSlot === "function") {
+      window.DujjonkuAds.renderSlot(topHost, topSlotId, {
+        adFormat: "auto",
+        fullWidthResponsive: true
+      });
+    } else {
+      topHost.innerHTML = "";
+    }
+  }
+
+  if (bottomHost) {
+    if (bottomSlotId && typeof window.DujjonkuAds?.renderSlot === "function") {
+      window.DujjonkuAds.renderSlot(bottomHost, bottomSlotId, {
+        adFormat: "auto",
+        fullWidthResponsive: true
+      });
+    } else {
+      bottomHost.innerHTML = "";
+    }
+  }
+}
+
 function updateGalleryCompletionBanner(dict, collectedCount, hiddenViewed) {
   const page = document.querySelector(".page.full");
   const sub = document.querySelector(".banner [data-i18n='gallerySub']");
@@ -411,5 +441,6 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("DOMContentLoaded", setupResultModalActions);
 document.addEventListener("DOMContentLoaded", renderGallery);
+document.addEventListener("DOMContentLoaded", renderGalleryAds);
 document.addEventListener("DOMContentLoaded", maybeShowSecretModal);
 document.addEventListener("duzzon:lang", renderGallery);

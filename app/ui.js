@@ -93,7 +93,9 @@ function ensureQuickAdModal() {
         <p class="quick-ad-copy">광고봐주세요.</p>
         <button id="quick-ad-x" class="quick-ad-x" type="button" aria-label="닫기">×</button>
       </div>
-      <div class="quick-ad-frame" aria-hidden="true"></div>
+      <div class="quick-ad-frame">
+        <div id="quick-ad-slot" class="quick-ad-slot"></div>
+      </div>
       <button id="quick-ad-confirm" class="quick-ad-close-btn" type="button" disabled>닫기 (5S)</button>
     </div>
   `;
@@ -113,11 +115,29 @@ function ensureQuickAdModal() {
   return modal;
 }
 
+function renderQuickAdSlot(modal) {
+  const slotHost = modal?.querySelector("#quick-ad-slot");
+  if (!slotHost) return;
+
+  const slotId = String(CONFIG?.adsenseSlots?.quickAdModal || "").trim();
+  const canRender = typeof window.DujjonkuAds?.renderSlot === "function" && !!slotId;
+  if (canRender) {
+    const rendered = window.DujjonkuAds.renderSlot(slotHost, slotId, {
+      adFormat: "auto",
+      fullWidthResponsive: true
+    });
+    if (rendered) return;
+  }
+
+  slotHost.innerHTML = '<p class="quick-ad-placeholder">광고 준비 중입니다.</p>';
+}
+
 function startQuickAdModal() {
   const modal = ensureQuickAdModal();
   const confirmBtn = modal.querySelector("#quick-ad-confirm");
   const closeX = modal.querySelector("#quick-ad-x");
   if (!confirmBtn || !closeX) return;
+  renderQuickAdSlot(modal);
 
   if (quickAdIntervalId) {
     clearInterval(quickAdIntervalId);
