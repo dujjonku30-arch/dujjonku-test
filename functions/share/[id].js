@@ -39,7 +39,7 @@ export async function onRequestGet(context) {
   const imagePath = "/assets/characters/char-locked.png";
   const imageUrl = `${origin}${imagePath}`;
   const targetUrl = `${origin}/result.html?id=${encodeURIComponent(id)}&src=share`;
-  const shareUrl = `${origin}/share/${encodeURIComponent(id)}`;
+  const shareUrl = `${origin}${url.pathname}${url.search}`;
   const title = `${meta.name} | 두쫀쿠 성격 테스트`;
   const description = meta.desc || "나의 두쫀쿠 결과를 확인해보세요.";
 

@@ -556,7 +556,8 @@ const copyBtn = document.getElementById("copy-btn");
 const userId = getUserId();
 const origin = window.location.origin === "null" ? "" : window.location.origin;
 const baseUrl = CONFIG.siteUrl || origin || window.location.href.split("/result.html")[0];
-const shareUrl = `${baseUrl}/share/${encodeURIComponent(id)}?ref=${userId}`;
+const shareVersion = encodeURIComponent(String(CONFIG?.shareOgVersion || "1"));
+const shareUrl = `${baseUrl}/share/${encodeURIComponent(id)}?ref=${userId}&v=${shareVersion}`;
 function buildSharePreview() {
   if (sharePreviewImage) {
     sharePreviewImage.src = resultImage?.src || `assets/characters/char-${id}.png`;

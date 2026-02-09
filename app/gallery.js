@@ -171,7 +171,8 @@ async function fallbackShareResult(characterId) {
   const dict = window.getDuzzonDict ? window.getDuzzonDict(document.documentElement.lang || "ko") : null;
   const origin = window.location.origin === "null" ? "" : window.location.origin;
   const baseUrl = CONFIG.siteUrl || origin || window.location.href.split("/gallery.html")[0];
-  const shareUrl = `${baseUrl}/share/${encodeURIComponent(characterId)}?ref=${getUserId()}`;
+  const shareVersion = encodeURIComponent(String(CONFIG?.shareOgVersion || "1"));
+  const shareUrl = `${baseUrl}/share/${encodeURIComponent(characterId)}?ref=${getUserId()}&v=${shareVersion}`;
 
   try {
     if (typeof navigator.share === "function") {
