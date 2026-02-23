@@ -8,7 +8,7 @@ const CONFIG = {
   adsenseClientId: "ca-pub-6354216537200498",
   adsenseAutoAds: false,
   adsenseSlots: {
-    quickAdModal: "4393335561",
+    quickAdModal: "",
     testBottom: "6723151284",
     resultAfterTags: "1767172220",
     galleryTop: "9454090553",

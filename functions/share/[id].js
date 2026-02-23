@@ -36,9 +36,10 @@ export async function onRequestGet(context) {
   const meta = RESULT_META[id] || { name: "두쫀쿠 성격 테스트", desc: "나의 두쫀쿠 결과를 확인해보세요." };
   const url = new URL(request.url);
   const origin = url.origin;
-  const imagePath = "/assets/characters/char-locked.png";
+  const hasKnownResult = Object.prototype.hasOwnProperty.call(RESULT_META, id);
+  const imagePath = hasKnownResult ? `/assets/characters/char-${id}.png` : "/assets/characters/char-locked.png";
   const imageUrl = `${origin}${imagePath}`;
-  const targetUrl = `${origin}/result.html?id=${encodeURIComponent(id)}&src=share`;
+  const targetUrl = `${origin}/gallery.html?open=${encodeURIComponent(id)}&src=share`;
   const shareUrl = `${origin}${url.pathname}${url.search}`;
   const title = `${meta.name} | 두쫀쿠 성격 테스트`;
   const description = meta.desc || "나의 두쫀쿠 결과를 확인해보세요.";
@@ -73,7 +74,7 @@ export async function onRequestGet(context) {
   return new Response(html, {
     headers: {
       "content-type": "text/html; charset=UTF-8",
-      "cache-control": "public, max-age=300"
+      "cache-control": "no-store, no-cache, must-revalidate, max-age=0"
     }
   });
 }

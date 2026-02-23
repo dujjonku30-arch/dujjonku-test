@@ -113,6 +113,20 @@ function openResultModal(characterId) {
   }
 }
 
+function openSharedResultFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const openId = String(params.get("open") || "").trim();
+  if (!openId) return;
+
+  const isKnownItem = GALLERY_ITEMS.some((item) => item.id === openId);
+  const isSecret = openId === "secret-recipe";
+  if (!isKnownItem && !isSecret) return;
+
+  setTimeout(() => {
+    openResultModal(openId);
+  }, 0);
+}
+
 function renderGalleryAds() {
   const topHost = document.getElementById("ad-gallery-top");
   const bottomHost = document.getElementById("ad-gallery-bottom");
@@ -172,16 +186,13 @@ async function fallbackShareResult(characterId) {
   const origin = window.location.origin === "null" ? "" : window.location.origin;
   const baseUrl = CONFIG.siteUrl || origin || window.location.href.split("/gallery.html")[0];
   const shareVersion = encodeURIComponent(String(CONFIG?.shareOgVersion || "1"));
-  const shareUrl = `${baseUrl}/share/${encodeURIComponent(characterId)}?ref=${getUserId()}&v=${shareVersion}`;
+  const shareUrl = `${baseUrl}/share/${encodeURIComponent(characterId)}?ref=${getUserId()}&v=${shareVersion}&cb=${Date.now()}`;
 
   try {
     if (typeof navigator.share === "function") {
-      const localized = window.getCharacterI18n
-        ? window.getCharacterI18n(characterId, document.documentElement.lang || "ko")
-        : null;
       await navigator.share({
         title: dict?.shareTitle || "두쫀쿠 성격 테스트",
-        text: localized?.name || dict?.shareDesc || "나랑 두쫀쿠 성향 테스트 해볼래?",
+        text: dict?.shareDesc || "나랑 두쫀쿠 성향 테스트 해볼래?",
         url: shareUrl
       });
       return;
@@ -444,4 +455,5 @@ document.addEventListener("DOMContentLoaded", setupResultModalActions);
 document.addEventListener("DOMContentLoaded", renderGallery);
 document.addEventListener("DOMContentLoaded", renderGalleryAds);
 document.addEventListener("DOMContentLoaded", maybeShowSecretModal);
+document.addEventListener("DOMContentLoaded", openSharedResultFromQuery);
 document.addEventListener("duzzon:lang", renderGallery);

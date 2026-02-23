@@ -557,7 +557,10 @@ const userId = getUserId();
 const origin = window.location.origin === "null" ? "" : window.location.origin;
 const baseUrl = CONFIG.siteUrl || origin || window.location.href.split("/result.html")[0];
 const shareVersion = encodeURIComponent(String(CONFIG?.shareOgVersion || "1"));
-const shareUrl = `${baseUrl}/share/${encodeURIComponent(id)}?ref=${userId}&v=${shareVersion}`;
+const shareBaseUrl = `${baseUrl}/share/${encodeURIComponent(id)}?ref=${userId}&v=${shareVersion}`;
+function getShareUrl() {
+  return `${shareBaseUrl}&cb=${Date.now()}`;
+}
 function buildSharePreview() {
   if (sharePreviewImage) {
     sharePreviewImage.src = resultImage?.src || `assets/characters/char-${id}.png`;
@@ -579,11 +582,12 @@ function buildSharePreview() {
 }
 
 async function shareNow() {
+  const shareUrl = getShareUrl();
   try {
     if (typeof navigator.share === "function") {
       await navigator.share({
         title: dict?.shareTitle || "두쫀쿠 성격 테스트",
-        text: result.name || dict?.shareDesc || "나랑 두쫀쿠 성향 테스트 해볼래?",
+        text: dict?.shareDesc || "나랑 두쫀쿠 성향 테스트 해볼래?",
         url: shareUrl
       });
       return;
@@ -904,11 +908,12 @@ shareNowBtn?.addEventListener("click", async () => {
     await shareNow();
   } catch (_error) {
     alert(dict?.shareOpenFailed || "공유를 열 수 없어 링크 복사 방식으로 전환합니다.");
+    const fallbackShareUrl = getShareUrl();
     try {
-      await navigator.clipboard.writeText(shareUrl);
+      await navigator.clipboard.writeText(fallbackShareUrl);
       alert(dict?.linkCopied || "링크가 복사됐어요.");
     } catch (_ignored) {
-      window.prompt(dict?.copyLinkPrompt || "링크를 복사해 주세요:", shareUrl);
+      window.prompt(dict?.copyLinkPrompt || "링크를 복사해 주세요:", fallbackShareUrl);
     }
   }
 });
@@ -920,7 +925,7 @@ shareSaveBtn?.addEventListener("click", async () => {
 });
 
 copyBtn?.addEventListener("click", async () => {
-  await navigator.clipboard.writeText(shareUrl);
+  await navigator.clipboard.writeText(getShareUrl());
   alert(dict?.linkCopied || "링크가 복사됐어요.");
 });
 
